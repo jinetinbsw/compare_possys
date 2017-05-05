@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.or.possys.Staff_service.Staff_Mapper">
+
+<update parameterType="kr.or.possys.Staff_service.Staff" id="updateStaff"> 
+UPDATE staff SET staff_pw= #{staffPw} , staff_name = #{staffName} , staff_level = #{staffLevel} , 
+staff_age = #{staffAge} , staff_addr = #{staffAddr} , staff_gender = #{staffGender} , 
+staff_phone = #{staffPhone} , staff_date = #{staffDate}
+WHERE staff_id= #{staffId)} AND staff_pw = #{staffPw} 
+</update>
+
+<delete parameterType="kr.or.possys.Staff_service.Staff" id="deleteStaff"> 
+DELETE FROM staff WHERE staff_id = #{staffId} AND staff_pw = #{staffPw} 
+</delete>
+
+<select parameterType="int" id="getStaff" resultType="kr.or.possys.Staff_service.Staff"> 
+SELECT staff_id AS staffId , staff_pw AS staffPw , staff_name AS staffName,
+ staff_level AS staffLevel, staff_age AS staffAge, staff_addr AS staffAddr, 
+ staff_gender AS staffGender, staff_phone AS staffPhone , staff_date AS staffDate 
+ FROM staff WHERE staff_id=#{staffId} 
+</select>
+
+<select parameterType="java.util.Map" id="getStaffList" resultType="kr.or.possys.Staff_service.Staff"> 
+SELECT staff_id AS staffId , staff_pw AS staffPw , staff_name AS staffName,
+ staff_level AS staffLevel , staff_phone AS staffPhone , staff_date AS staffDate 
+ FROM staff ORDER BY board_date DESC LIMIT #{beginRow}, #{pagePerRow} 
+ </select>
+
+<!-- <select id="getStaffCount" resultType="int"> 
+SELECT COUNT(*) FROM Staff 
+</select> -->
+
+<insert parameterType="kr.or.possys.Staff_service.Staff" id="insertStaff"> 
+INSERT INTO staff( staff_id , staff_pw , staff_name , staff_level , 
+staff_age , staff_addr , staff_gender , staff_phone , staff_date ) 
+VALUES( #{staffId} , #{staffPw} , #{staffName} , #{staffLevel} , 
+#{staffAge} , #{staffAddr} , #{staffGender} , #{staffPhone} , now() ) 
+</insert>
+
+</mapper>
