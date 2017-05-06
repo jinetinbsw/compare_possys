@@ -24,7 +24,7 @@ public class Payment_Controller {
 		return "tori_home";
 	}
 	
-	//폼으로 이동한다
+	//리스트 입력 폼으로 이동한다
 	@RequestMapping(value="/tori/payment/payment_add_form", method = RequestMethod.GET)
 	public String paymentadd(){
 		System.out.println("01 Payment_Controller.java -> paymentadd");
@@ -33,7 +33,7 @@ public class Payment_Controller {
 		
 	}
 	
-	//폼에서 리스트로 이동한다(입력 요청)
+	//입력 요청 : 액선으로 이동한다
 	@RequestMapping(value="/tori/payment/payment_add_action", method = RequestMethod.POST)
 	public String paymentadd(Payment Payment){
 		System.out.println("01_1 Payment_Controller.java -> paymentadd");

@@ -31,9 +31,11 @@
 <!--         <beans:property name="username" value="art9000"/> -->
 <!--         <beans:property name="password" value="tkdgns12"/> -->
 
-        <beans:property name="url" value="jdbc:mysql://127.0.0.1:3306/dade?useUnicode=true&amp;characterEncoding=euckr"/>
+        <beans:property name="url" value="jdbc:mysql://127.0.0.1:3308/dade?useUnicode=true&amp;characterEncoding=euckr"/>
         <beans:property name="username" value="dadeid"/>
         <beans:property name="password" value="dadepw"/>
+        
+        <!--  이래놓고 정작 데이터베이스 구성 자체가 안되어있으면 실행에러 발생. -->
     </beans:bean>
 	
 	<!-- mybatis설정 1. SqlSessionFactory -->
